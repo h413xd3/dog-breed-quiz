@@ -1,0 +1,13 @@
+mat-card {
+    max-width: 100%;
+
+    &:not(:first-child) {
+        margin-top: 1rem;
+    }
+}
+
+mat-card-actions {
+    button:not(:first-child) {
+        margin-left: calc(1rem / 2);
+    }
+}

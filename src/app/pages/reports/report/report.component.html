@@ -1,0 +1,102 @@
+<h2>
+    {{ "pages.reports.report.title" | translate }}
+</h2>
+
+<br />
+
+<div *ngIf="report !== undefined">
+    <p>
+        {{
+            "pages.reports.report.score"
+                | translate
+                    : {
+                          score: report.score,
+                          total: report.questions.length
+                      }
+        }}
+    </p>
+
+    <p>
+        {{
+            "pages.reports.report.date"
+                | translate
+                    : {
+                          date: report.date | date : "dd/MM/yyyy",
+                          time: report.date | date : "HH:mm"
+                      }
+        }}
+    </p>
+
+    <br />
+
+    <mat-card *ngFor="let question of report.questions">
+        <mat-card-content>
+            <h2>
+                {{
+                    "pages.reports.report.question.title"
+                        | translate
+                            : {
+                                  index: question.id,
+                                  total: report.questions.length
+                              }
+                }}
+            </h2>
+
+            <br />
+
+            <img
+                [src]="'./assets/images/dogs/' + question.question.image"
+                alt="image"
+                height="200"
+            />
+
+            <br />
+
+            <div class="answers-container">
+                <mat-grid-list
+                    class="answer"
+                    cols="2"
+                    rowHeight="5:1"
+                    gutterSize="4px"
+                >
+                    <mat-grid-tile *ngFor="let option of question.options">
+                        <button
+                            mat-flat-button
+                            color="primary"
+                            [ngClass]="{
+                                'incorrect': (
+                                    question.answer !== null
+                                    && question.question.id !== option.id
+                                    && question.answer.id === option.id
+                                ),
+                                'correct':  question.question.id === option.id,
+                            }"
+                        >
+                            {{ option.name }}
+                        </button>
+                    </mat-grid-tile>
+                </mat-grid-list>
+            </div>
+
+            <br />
+
+            <div class="duration">
+                <mat-icon fontIcon="schedule" />
+
+                <p>
+                    {{
+                        "pages.reports.report.question.duration"
+                            | translate
+                                : {
+                                      duration: question.duration
+                                  }
+                    }}
+                </p>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>
+
+<button mat-fab color="primary" class="float-button" (click)="onLeave()">
+    <mat-icon>exit_to_app</mat-icon>
+</button>

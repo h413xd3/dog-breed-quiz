@@ -1,0 +1,106 @@
+<div class="init-panel" *ngIf="state === QuizState.INIT">
+    <mat-spinner />
+
+    <br />
+
+    <h2>
+        {{ "pages.quiz.initialization.title" | translate }}
+    </h2>
+
+    <br />
+
+    <p>
+        {{ "pages.quiz.initialization.description" | translate }}
+    </p>
+</div>
+
+<div class="started-panel" *ngIf="state === QuizState.STARTED && showQuizz">
+    <img
+        [src]="
+            './assets/images/dogs/' +
+            questions[currentQuestionIndex].answer.image
+        "
+        height="200"
+    />
+
+    <br />
+
+    <app-timer
+        [duration]="duration"
+        [intervalDuration]="50"
+        (finish)="onTimerFinished($event)"
+    />
+
+    <br />
+
+    <div class="answer-container">
+        <mat-grid-list
+            class="answer"
+            cols="2"
+            rowHeight="3:1"
+            gutterSize="16px"
+        >
+            <mat-grid-tile
+                *ngFor="let option of questions[currentQuestionIndex].options"
+            >
+                <button
+                    mat-flat-button
+                    color="primary"
+                    (click)="onAnswer(option)"
+                    [ngClass]="{
+                        correct: goodAnswer === option.id,
+                        incorrect: badAnswer === option.id,
+                    }"
+                >
+                    {{ option.name }}
+                </button>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </div>
+</div>
+
+<div class="finished-panel" *ngIf="state === QuizState.FINISHED">
+    <h1>
+        {{ "pages.quiz.finished.title" | translate }}
+    </h1>
+
+    <p>
+        {{
+            "pages.quiz.finished.description"
+                | translate : { score: score, total: questions.length }
+        }}
+    </p>
+
+    <br />
+
+    <div class="controls">
+        <mat-grid-list
+            class="answer"
+            cols="3"
+            rowHeight="2:1"
+            gutterSize="16px"
+        >
+            <mat-grid-tile>
+                <button mat-flat-button color="primary" (click)="onLeave()">
+                    {{ "pages.quiz.finished.leave" | translate }}
+                </button>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+                <button
+                    mat-flat-button
+                    color="primary"
+                    (click)="onShowReport()"
+                >
+                    {{ "pages.quiz.finished.report" | translate }}
+                </button>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+                <button mat-flat-button color="primary" (click)="onRestart()">
+                    {{ "pages.quiz.finished.restart" | translate }}
+                </button>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </div>
+</div>

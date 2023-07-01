@@ -1,0 +1,39 @@
+<mat-card>
+    <mat-card-title>
+        <h2>
+            {{ "components.quiz-configurator.title" | translate }}
+        </h2>
+    </mat-card-title>
+
+    <mat-card-content>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()" (change)="onChange()">
+            <mat-label>
+                {{ "components.quiz-configurator.questions" | translate }}
+            </mat-label>
+
+            <br />
+
+            <mat-slider min="5" max="30" step="5" showTickMarks discrete>
+                <input matSliderThumb formControlName="questions" />
+            </mat-slider>
+
+            <br />
+
+            <mat-label>
+                {{ "components.quiz-configurator.seconds" | translate }}
+            </mat-label>
+
+            <br />
+
+            <mat-slider min="5" max="30" step="1" discrete>
+                <input matSliderThumb formControlName="seconds" />
+            </mat-slider>
+
+            <br />
+
+            <button mat-raised-button color="primary" type="submit">
+                {{ "components.quiz-configurator.start" | translate }}
+            </button>
+        </form>
+    </mat-card-content>
+</mat-card>

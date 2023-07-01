@@ -1,0 +1,66 @@
+{
+    "global": {
+        "title": "Quiz des races de chien",
+        "cancel": "Annuler"
+    },
+    "components": {
+        "dialogs": {
+            "delete-report": {
+                "title": "Supprimer le rapport",
+                "description": "Êtes-vous sûr de vouloir supprimer ce rapport ?",
+                "cancel": "Annuler",
+                "delete": "Supprimer"
+            }
+        },
+        "app": {
+            "title": "Quiz des races de chien",
+            "menu": {
+                "home": "Accueil",
+                "reports": "Rapports"
+            }
+        },
+        "quiz-configurator": {
+            "title": "Nouvelle partie",
+            "questions": "Nombre de questions",
+            "seconds": "Durée des questions (en secondes)",
+            "start": "Commencer"
+        }
+    },
+    "pages": {
+        "quiz": {
+            "initialization": {
+                "title": "Initialisation du quiz !",
+                "description": "Veuillez patienter pendant que le quiz se charge..."
+            },
+            "finished": {
+                "title": "Quiz terminé !",
+                "description": "Vous avez répondu correct à {{ score }} questions sur {{ total }} !",
+                "leave": "Quitter",
+                "report": "Rapport",
+                "restart": "Recommencer"
+            }
+        },
+        "reports": {
+            "home": {
+                "title": "Rapports",
+                "empty": "Vous n'avez pas encore de rapport. Jouez à un quiz pour en générer un !",
+                "score": "Score: {{ score }} / {{ total }}",
+                "date": "Le {{ date }} à {{ time }}",
+                "delete": "Supprimer",
+                "view": "Voir",
+                "snackbar": {
+                    "title": "Rapport supprimé !"
+                }
+            },
+            "report": {
+                "title": "Rapport",
+                "score": "Score: {{ score }} / {{ total }}",
+                "date": "Le {{ date }} à {{ time }}",
+                "question": {
+                    "title": "Question {{ index }} / {{ total }}" ,
+                    "duration": "Durée: {{ duration }} secondes"
+                }
+            }
+        }
+    }
+}

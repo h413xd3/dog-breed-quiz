@@ -1,0 +1,60 @@
+<h2>
+    {{ "pages.reports.home.title" | translate }}
+</h2>
+
+<div *ngIf="reports.length === 0">
+    {{ "pages.reports.home.empty" | translate }}
+</div>
+
+<mat-card *ngFor="let report of reports">
+    <mat-card-content>
+        <div class="images">
+            <img
+                *ngFor="let question of report.questions.slice(0, 111)"
+                [src]="'./assets/images/dogs/' + question.question.image"
+                [alt]="question.question.name"
+                height="100"
+            />
+        </div>
+
+        <p>
+            {{
+                "pages.reports.home.score"
+                    | translate
+                        : {
+                              score: report.score,
+                              total: report.questions.length
+                          }
+            }}
+        </p>
+
+        <p>
+            {{
+                "pages.reports.home.date"
+                    | translate
+                        : {
+                              date: report.date | date : "dd/MM/yyyy",
+                              time: report.date | date : "HH:mm"
+                          }
+            }}
+        </p>
+    </mat-card-content>
+
+    <mat-card-actions>
+        <button
+            mat-stroked-button
+            color="warn"
+            (click)="onDeleteReport(report)"
+        >
+            {{ "pages.reports.home.delete" | translate }}
+        </button>
+
+        <button
+            mat-flat-button
+            color="primary"
+            routerLink="/reports/{{ report.id }}"
+        >
+            {{ "pages.reports.home.view" | translate }}
+        </button>
+    </mat-card-actions>
+</mat-card>

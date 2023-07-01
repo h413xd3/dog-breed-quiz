@@ -1,0 +1,66 @@
+{
+    "global": {
+        "title": "Dog Breed Quiz",
+        "cancel": "Cancel"
+    },
+    "components": {
+        "dialogs": {
+            "delete-report": {
+                "title": "Delete Report",
+                "description": "Are you sure you want to delete this report ?",
+                "cancel": "Cancel",
+                "delete": "Delete"
+            }
+        },
+        "app": {
+            "title": "Dog Breed Quiz",
+            "menu": {
+                "home": "Home",
+                "reports": "Reports"
+            }
+        },
+        "quiz-configurator": {
+            "title": "New Game",
+            "questions": "Number of Questions",
+            "seconds": "Question Duration (in seconds)",
+            "start": "Start"
+        }
+    },
+    "pages": {
+        "quiz": {
+            "initialization": {
+                "title": "Quiz Initialization !",
+                "description": "Please wait while the quiz is loading..."
+            },
+            "finished": {
+                "title": "Quiz Finished!",
+                "description": "You answered {{ score }} out of {{ total }} questions correctly !",
+                "leave": "Leave",
+                "report": "Report",
+                "restart": "Restart"
+            }
+        },
+        "reports": {
+            "home": {
+                "title": "Reports",
+                "empty": "You don't have any reports yet. Play a quiz to generate one !",
+                "score": "Score: {{ score }} / {{ total }}",
+                "date": "On {{ date }} at {{ time }}",
+                "delete": "Delete",
+                "view": "View",
+                "snackbar": {
+                    "title": "Report deleted !"
+                }
+            },
+            "report": {
+                "title": "Report",
+                "score": "Score: {{ score }} / {{ total }}",
+                "date": "On {{ date }} at {{ time }}",
+                "question": {
+                    "title": "Question {{ index }} / {{ total }}",
+                    "duration": "Duration: {{ duration }} seconds"
+                }
+            }
+        }
+    }
+}

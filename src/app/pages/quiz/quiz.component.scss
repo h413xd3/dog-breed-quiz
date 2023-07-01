@@ -1,0 +1,73 @@
+@use "@angular/material" as mat;
+
+.init-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.started-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    width: 100%;
+
+    img {
+        border-radius: 6px;
+    }
+
+    div.answer-container {
+        width: 600px;
+        max-width: 90%;
+    }
+
+    mat-grid-list.answer {
+        button {
+            width: calc(100% - 8px);
+            height: calc(100% - 8px);
+
+            &.incorrect {
+                background-color: mat.get-color-from-palette(
+                    mat.$red-palette,
+                    500
+                );
+            }
+
+            &.correct {
+                background-color: mat.get-color-from-palette(
+                    mat.$green-palette,
+                    500
+                );
+            }
+        }
+    }
+
+    app-timer {
+        width: 600px;
+        max-width: 90%;
+    }
+}
+
+.finished-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    width: 100%;
+
+    .controls {
+        width: 500px;
+        max-width: 90%;
+
+        button {
+            width: calc(100% - 8px);
+            height: calc(100% - 8px);
+        }
+    }
+}

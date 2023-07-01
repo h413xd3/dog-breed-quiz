@@ -1,0 +1,63 @@
+@use "@angular/material" as mat;
+
+:host {
+    padding: 1rem;
+}
+
+p {
+    text-align: center;
+}
+
+mat-card {
+    width: 600px;
+    max-width: 90%;
+    margin: 16px auto;
+}
+
+mat-card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .answers-container {
+        width: 100%;
+    }
+
+    img {
+        border-radius: 6px;
+        margin: auto;
+    }
+
+    button {
+        width: calc(100% - 4px) !important;
+        height: calc(100% - 4px) !important;
+
+        &.incorrect {
+            background-color: mat.get-color-from-palette(mat.$red-palette, 500);
+        }
+
+        &.correct {
+            background-color: mat.get-color-from-palette(
+                mat.$green-palette,
+                500
+            );
+        }
+    }
+}
+
+div.duration {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    p {
+        margin-left: 16px;
+    }
+}
+
+.float-button {
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
+}

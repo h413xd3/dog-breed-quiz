@@ -1,0 +1,19 @@
+mat-card {
+    width: 500px;
+    max-width: 100%;
+}
+
+h2 {
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+mat-slider {
+    width: 200px;
+    max-width: 80%;
+}

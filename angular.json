@@ -8,7 +8,8 @@
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
-        }
+        },
+        "indent": "spaces=4"
       },
       "root": "",
       "sourceRoot": "src",
@@ -30,7 +31,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/app/themes/dog-theme.scss"
             ],
             "scripts": []
           },
